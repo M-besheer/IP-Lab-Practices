@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="Todo-list.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>My Todo List</h1>
+        <div class="input-group">
+            <input type="text" id="todoInput" placeholder="Add a new TASK...">
+            <button onclick="addTodo()">Add</button>
+        </div>
+        <div class="controls-group">
+            <button id="deleteAllBtn" title="Delete All"> <i class="fa-solid fa-trash-can"></i> </button>
+            <button id="toggleAllBtn" title="Toggle All"> <i class="fa-solid fa-check-double"></i> </button>
+            <button id="filterCompletedBtn" title="Show Completed"> <i class="fa-solid fa-list-check"></i> </button>
+            <button id="filterIncompleteBtn" title="Show Incomplete"> <i class="fa-solid fa-list-ul"></i> </button>
+            <button id="filterAllBtn" title="Show All"> <i class="fa-solid fa-border-all"></i> </button>
+        </div>
+
+        <ul id="todoList"></ul>  
+    </div>
+
+    <div id="editModal" class="modal hidden">
+        <div class="modal-content container"> <h2>Update Task</h2>
+            <input type="text" id="editInput" placeholder="New task name...">
+            <div class="modal-actions">
+                <button id="saveEditBtn">Save</button>
+                <button id="cancelEditBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="Todo-list.js"></script>
+
+    
+</body>
+</html>
