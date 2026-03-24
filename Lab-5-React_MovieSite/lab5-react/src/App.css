@@ -1,0 +1,206 @@
+/* --- App.css (Dark Theme) --- */
+
+/* Base Design Variables - Updated for Dark Mode */
+:root {
+  --primary-color: #6366f1; /* Slightly brighter indigo for dark mode */
+  --primary-hover: #818cf8;
+  --danger-color: #f87171;
+  --danger-hover: #ef4444;
+  --bg-color: #111827; /* Very dark gray/blue */
+  --card-bg: #1f2937;  /* Slightly lighter dark gray for cards */
+  --text-main: #f9fafb; /* Off-white for main text */
+  --text-muted: #9ca3af; /* Light gray for secondary text */
+  --border-color: #374151; /* Dark border to separate elements */
+  --input-bg: #111827; /* Match background for inputs */
+  --radius: 12px;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Layout */
+.app-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.app-header h1 {
+  text-align: center;
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Form Styling */
+.add-movie-form {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+  margin-bottom: 3rem;
+  border: 1px solid var(--border-color);
+}
+
+.add-movie-form h3 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.75rem;
+  color: var(--text-main);
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group input[type="text"],
+.form-group textarea,
+.form-group input[type="number"] {
+  width: 100%;
+  padding: 0.85rem;
+  background-color: var(--input-bg);
+  color: var(--text-main);
+  border: 1.5px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Placeholder styling for dark mode */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #6b7280;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.rating-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.rating-group input {
+  width: 80px;
+}
+
+/* Webkit browser adjustments for number input arrows in dark mode */
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button { 
+  filter: invert(1); 
+}
+
+.add-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.85rem 1.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s ease;
+}
+
+.add-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Movies List Styling */
+.movies-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-main);
+}
+
+.movies-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Individual Movie Card */
+.movie-item {
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border: 1px solid var(--border-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.movie-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+}
+
+.movie-content h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.35rem;
+  color: var(--text-main);
+}
+
+.movie-content p {
+  margin: 0.35rem 0;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.movie-content strong {
+  color: #d1d5db; /* Slightly lighter than muted text for emphasis */
+}
+
+.stars {
+  letter-spacing: 2px;
+}
+
+.remove-btn {
+  background-color: rgba(239, 68, 68, 0.1); /* Transparent red background */
+  color: var(--danger-color);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.remove-btn:hover {
+  background-color: var(--danger-color);
+  color: #111827; /* Dark text on hover */
+}
+
+/* Empty State Styling */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  border: 2px dashed var(--border-color);
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
