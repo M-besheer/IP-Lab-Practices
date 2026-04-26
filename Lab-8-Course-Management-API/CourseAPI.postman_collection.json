@@ -1,0 +1,306 @@
+{
+  "info": {
+    "name": "Course Management API",
+    "description": "Lab 8 — Udemy-Style Course API (Express + MongoDB)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url",    "value": "http://localhost:5000/api/courses" },
+    { "key": "course_id_1", "value": "" },
+    { "key": "course_id_2", "value": "" },
+    { "key": "course_id_3", "value": "" },
+    { "key": "course_id_4", "value": "" },
+    { "key": "course_id_5", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "── CREATE COURSES ──",
+      "item": [
+        {
+          "name": "CREATE Course 1 — Web Development",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{base_url}}", "host": ["{{base_url}}"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Full Stack Web Development\",\n  \"description\": \"Learn HTML, CSS, JavaScript, Node.js and MongoDB from scratch to build real-world applications.\",\n  \"instructor\": \"Ahmed Hassan\",\n  \"price\": 49.99,\n  \"category\": \"Web Development\",\n  \"enrolledStudents\": 3200\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const res = pm.response.json();",
+                  "pm.test('Status 201 Created', () => pm.response.to.have.status(201));",
+                  "pm.test('Has _id', () => pm.expect(res).to.have.property('_id'));",
+                  "pm.test('Title matches', () => pm.expect(res.title).to.eql('Full Stack Web Development'));",
+                  "pm.collectionVariables.set('course_id_1', res._id);",
+                  "console.log('course_id_1:', res._id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "CREATE Course 2 — UI/UX Design",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{base_url}}", "host": ["{{base_url}}"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"UI/UX Design Masterclass\",\n  \"description\": \"Master Figma, user research, wireframing and prototyping to design beautiful digital products.\",\n  \"instructor\": \"Sara Khaled\",\n  \"price\": 39.99,\n  \"category\": \"Design\",\n  \"enrolledStudents\": 1850\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const res = pm.response.json();",
+                  "pm.test('Status 201 Created', () => pm.response.to.have.status(201));",
+                  "pm.test('Has _id', () => pm.expect(res).to.have.property('_id'));",
+                  "pm.test('Title matches', () => pm.expect(res.title).to.eql('UI/UX Design Masterclass'));",
+                  "pm.collectionVariables.set('course_id_2', res._id);",
+                  "console.log('course_id_2:', res._id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "CREATE Course 3 — Digital Marketing",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{base_url}}", "host": ["{{base_url}}"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Digital Marketing Bootcamp\",\n  \"description\": \"Learn SEO, social media marketing, Google Ads, email campaigns and analytics to grow any business online.\",\n  \"instructor\": \"Omar Farouk\",\n  \"price\": 34.99,\n  \"category\": \"Marketing\",\n  \"enrolledStudents\": 2700\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const res = pm.response.json();",
+                  "pm.test('Status 201 Created', () => pm.response.to.have.status(201));",
+                  "pm.test('Has _id', () => pm.expect(res).to.have.property('_id'));",
+                  "pm.test('Title matches', () => pm.expect(res.title).to.eql('Digital Marketing Bootcamp'));",
+                  "pm.collectionVariables.set('course_id_3', res._id);",
+                  "console.log('course_id_3:', res._id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "CREATE Course 4 — Machine Learning",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{base_url}}", "host": ["{{base_url}}"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Machine Learning with Python\",\n  \"description\": \"Build ML models using scikit-learn, TensorFlow and Pandas. Covers regression, classification and neural networks.\",\n  \"instructor\": \"Nour El-Din\",\n  \"price\": 59.99,\n  \"category\": \"Data Science\",\n  \"enrolledStudents\": 4100\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const res = pm.response.json();",
+                  "pm.test('Status 201 Created', () => pm.response.to.have.status(201));",
+                  "pm.test('Has _id', () => pm.expect(res).to.have.property('_id'));",
+                  "pm.test('Title matches', () => pm.expect(res.title).to.eql('Machine Learning with Python'));",
+                  "pm.collectionVariables.set('course_id_4', res._id);",
+                  "console.log('course_id_4:', res._id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "CREATE Course 5 — React Native",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{base_url}}", "host": ["{{base_url}}"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"React Native Mobile Development\",\n  \"description\": \"Build cross-platform iOS and Android apps using React Native, Expo and Firebase from zero to deployment.\",\n  \"instructor\": \"Layla Mostafa\",\n  \"price\": 44.99,\n  \"category\": \"Mobile Development\",\n  \"enrolledStudents\": 0\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const res = pm.response.json();",
+                  "pm.test('Status 201 Created', () => pm.response.to.have.status(201));",
+                  "pm.test('Has _id', () => pm.expect(res).to.have.property('_id'));",
+                  "pm.test('Title matches', () => pm.expect(res.title).to.eql('React Native Mobile Development'));",
+                  "pm.test('enrolledStudents defaults to 0', () => pm.expect(res.enrolledStudents).to.eql(0));",
+                  "pm.collectionVariables.set('course_id_5', res._id);",
+                  "console.log('course_id_5:', res._id);"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "── READ OPERATIONS ──",
+      "item": [
+        {
+          "name": "READ ALL Courses",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{base_url}}", "host": ["{{base_url}}"] }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const res = pm.response.json();",
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Returns an array', () => pm.expect(res).to.be.an('array'));",
+                  "pm.test('At least 5 courses exist', () => pm.expect(res.length).to.be.at.least(5));",
+                  "pm.test('Each course has required fields', () => {",
+                  "    res.forEach(course => {",
+                  "        pm.expect(course).to.have.property('title');",
+                  "        pm.expect(course).to.have.property('instructor');",
+                  "        pm.expect(course).to.have.property('price');",
+                  "        pm.expect(course).to.have.property('category');",
+                  "        pm.expect(course).to.have.property('enrolledStudents');",
+                  "    });",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "READ ONE Course (Course 1)",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{base_url}}/{{course_id_1}}", "host": ["{{base_url}}/{{course_id_1}}"] }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const res = pm.response.json();",
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Correct course returned', () => pm.expect(res._id).to.eql(pm.collectionVariables.get('course_id_1')));",
+                  "pm.test('Has all fields', () => {",
+                  "    pm.expect(res).to.have.all.keys('_id','title','description','instructor','price','category','enrolledStudents','__v');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "── UPDATE OPERATION ──",
+      "item": [
+        {
+          "name": "UPDATE Course 3 — Lower Price & More Students",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{base_url}}/{{course_id_3}}", "host": ["{{base_url}}/{{course_id_3}}"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"price\": 24.99,\n  \"enrolledStudents\": 3500\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const res = pm.response.json();",
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Success message returned', () => pm.expect(res.message).to.eql('Course updated successfully'));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "VERIFY Update on Course 3",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{base_url}}/{{course_id_3}}", "host": ["{{base_url}}/{{course_id_3}}"] }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const res = pm.response.json();",
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Price updated to 24.99', () => pm.expect(res.price).to.eql(24.99));",
+                  "pm.test('enrolledStudents updated to 3500', () => pm.expect(res.enrolledStudents).to.eql(3500));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "── DELETE OPERATION ──",
+      "item": [
+        {
+          "name": "DELETE Course 5 — React Native",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "{{base_url}}/{{course_id_5}}", "host": ["{{base_url}}/{{course_id_5}}"] }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const res = pm.response.json();",
+                  "pm.test('Status 200 OK', () => pm.response.to.have.status(200));",
+                  "pm.test('Success message returned', () => pm.expect(res.message).to.eql('Course deleted successfully'));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "VERIFY Delete — Should Return 404",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{base_url}}/{{course_id_5}}", "host": ["{{base_url}}/{{course_id_5}}"] }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const res = pm.response.json();",
+                  "pm.test('Status 404 Not Found', () => pm.response.to.have.status(404));",
+                  "pm.test('Not found message returned', () => pm.expect(res.message).to.eql('Course not found'));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
